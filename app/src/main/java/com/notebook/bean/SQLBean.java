@@ -19,7 +19,6 @@ public class SQLBean {
 	}
 	public void setTitle(String title) {//设置日记标题
 		this.title = title;
-
 	}
 	public String getContext() {//获取日记内容
 		return context;
