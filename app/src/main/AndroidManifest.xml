@@ -1,21 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.notebook">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/notebook_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        android:theme="@style/NoteTheme">
+
+        <activity
+            android:name="com.notebook.MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<!--        <activity-->
+<!--            android:name="com.ljy171010125_lyk171140119.notebook.AddActivity"-->
+<!--            android:theme="@style/NoteTheme"-->
+<!--            android:windowSoftInputMode="stateHidden"></activity>-->
+<!--        <activity android:name="com.notebook.About"></activity>-->
+<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.ShowRecord"></activity>-->
+        <!--        <activity android:name="ljy171010125_lyk171140119171010125_lyk171140119.notes.ShowNoteActivity"></activity>-->
+<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.PaintActivity"></activity>-->
+<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.ActivityRecord"></activity>-->
+<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.SearchActivity"></activity>-->
+<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.DataSearchActivity"></activity>-->
+        <!--        <activity-->
+        <!--            android:name="ljy171010125_lyk171140119171010125_lyk171140119.notes.HandWriteActivity"-->
+        <!--            android:windowSoftInputMode="stateHidden"></activity>-->
+
+<!--        <receiver-->
+<!--            android:name="com.ljy171010125_lyk171140119.notebook.data.CallAlarm"-->
+<!--            android:process=":remote" />-->
+
+<!--        <activity-->
+<!--            android:name="com.ljy171010125_lyk171140119.notebook.data.AlarmAlert"-->
+<!--            android:label="@string/remindsetting_name">-->
+<!--            <intent-filter>-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>
