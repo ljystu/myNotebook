@@ -35,7 +35,7 @@ import com.notebook.bean.SQLBean;
 import com.notebook.view.MyGridView;
 import com.master.permissionhelper.PermissionHelper;
 import com.notebook.db.DatabaseOperation;
-
+import android.view.View.OnClickListener;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -60,7 +60,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		bt_add = (Button) findViewById(R.id.bt_add);
 		//------------------------------------------------------------------------------
-//		bt_add.setOnClickListener(new ClickEvent());
+		bt_add.setOnClickListener(new ClickEvent());
 		et_keyword = (EditText) findViewById(R.id.et_keyword);
 		// 数据库操作
 		dop = new DatabaseOperation(this, db);
@@ -242,20 +242,20 @@ public class MainActivity extends Activity {
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 								long id) {
 			//-----------------------------------------------------------------------------
-//			tv_note_id = (TextView) view.findViewById(R.id.tv_note_id);
-//			tv_locktype = (TextView) view.findViewById(R.id.tv_locktype);
-//			tv_lock = (TextView) view.findViewById(R.id.tv_lock);
-//			String locktype = tv_locktype.getText().toString();
-//			String lock = tv_lock.getText().toString();
-//			int item_id = Integer.parseInt(tv_note_id.getText().toString());
-//			if ("0".equals(locktype)) {
-//				Intent intent = new Intent(MainActivity.this, AddActivity.class);
-//				intent.putExtra("editModel", "update");
-//				intent.putExtra("noteId", item_id);
-//				startActivity(intent);
-//			} else {
-//				inputTitleDialog(lock, 0, item_id);
-//			}
+			tv_note_id = (TextView) view.findViewById(R.id.tv_note_id);
+			tv_locktype = (TextView) view.findViewById(R.id.tv_locktype);
+			tv_lock = (TextView) view.findViewById(R.id.tv_lock);
+			String locktype = tv_locktype.getText().toString();
+			String lock = tv_lock.getText().toString();
+			int item_id = Integer.parseInt(tv_note_id.getText().toString());
+			if ("0".equals(locktype)) {
+				Intent intent = new Intent(MainActivity.this, AddActivity.class);
+				intent.putExtra("editModel", "update");
+				intent.putExtra("noteId", item_id);
+				startActivity(intent);
+			} else {
+				inputTitleDialog(lock, 0, item_id);
+			}
 		}
 	}
 	// 加密日记打开弹出的输入密码框
@@ -301,19 +301,19 @@ public class MainActivity extends Activity {
 		builder.show();
 	}
 	// 点击事件
-	//--------------------------------------------------------------------------------暂时不实现
-//	class ClickEvent implements OnClickListener {
-//		@Override
-//		public void onClick(View v) {
-//			switch (v.getId()) {
-//				// 添加记事
-//				case R.id.bt_add:
-//					Intent intent = new Intent(MainActivity.this, AddActivity.class);
-//					intent.putExtra("editModel", "newAdd");
-//					startActivity(intent);
-//			}
-//		}
-//	}
+
+	class ClickEvent implements OnClickListener {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+				// 添加记事
+				case R.id.bt_add:
+					Intent intent = new Intent(MainActivity.this, AddActivity.class);
+					intent.putExtra("editModel", "newAdd");
+					startActivity(intent);
+			}
+		}
+	}
 
 	// 搜索功能
 	//-----------------------------------------------------------------------------------暂时不实现

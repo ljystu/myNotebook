@@ -35,10 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <activity-->
-<!--            android:name="com.ljy171010125_lyk171140119.notebook.AddActivity"-->
-<!--            android:theme="@style/NoteTheme"-->
-<!--            android:windowSoftInputMode="stateHidden"></activity>-->
+        <activity
+            android:name="com.notebook.AddActivity"
+            android:theme="@style/NoteTheme"
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name="com.notebook.About"></activity>
 <!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.ShowRecord"></activity>-->
         <!--        <activity android:name="ljy171010125_lyk171140119171010125_lyk171140119.notes.ShowNoteActivity"></activity>-->
