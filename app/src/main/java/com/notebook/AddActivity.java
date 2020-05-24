@@ -144,18 +144,18 @@ public class AddActivity extends Activity {
             locktype = cursor.getString(cursor.getColumnIndex("locktype"));
             lock = cursor.getString(cursor.getColumnIndex("lock"));
             //日记是否被上锁
-//            if ("0".equals(locktype)) {
-//                ib_lk.setBackgroundResource(R.drawable.un_locky);
-//            } else {
-//                ib_lk.setBackgroundResource(R.drawable.locky);
-//            }
-//            //判断是否设置提醒
-//            if ("0".equals(datatype)) {
-//                datarl.setVisibility(View.GONE);
-//            } else {
-//                datarl.setVisibility(View.VISIBLE);
-//                datatv.setText("提醒时间：" + datatime);
-//            }
+            if ("0".equals(locktype)) {
+                ib_lk.setBackgroundResource(R.drawable.un_locky);
+            } else {
+                ib_lk.setBackgroundResource(R.drawable.locky);
+            }
+            //判断是否设置提醒
+            if ("0".equals(datatype)) {
+                datarl.setVisibility(View.GONE);
+            } else {
+                datarl.setVisibility(View.VISIBLE);
+                datatv.setText("提醒时间：" + datatime);
+            }
             // 定义正则表达式，用于匹配路径
             Pattern p = Pattern.compile("/([^\\.]*)\\.\\w{3}");
             Matcher m = p.matcher(context);

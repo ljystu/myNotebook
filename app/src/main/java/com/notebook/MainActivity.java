@@ -193,46 +193,45 @@ public class MainActivity extends Activity {
 		//设置弹窗图片
 		alertDialogBuilder.setIcon(R.mipmap.ic_launcher);
 		//设置弹窗选项内容
-		//-------------------------------------------------------------------------------------------
-//		alertDialogBuilder.setItems(R.array.itemOperation,
-//				new DialogInterface.OnClickListener() {
-//					@Override
-//					public void onClick(DialogInterface dialog, int which) {
-//						switch (which) {
-//							// 编辑
-//							case 0:
-//								if ("0".equals(locktype)) {//判断是否添加了秘密锁0没有
-//									Intent intent = new Intent(MainActivity.this,
-//											AddActivity.class);//跳转到添加日记页
-//									intent.putExtra("editModel", "update");//传递编辑信息
-//									intent.putExtra("noteId", item_id);//传递id信息
-//									startActivity(intent);//开始跳转
-//								} else {//有秘密锁
-//									// 弹出输入密码框
-//									inputTitleDialog(lock, 0, item_id);
-//								}
-//								break;
-//							// 删除
-//							case 1:
-//								if ("0".equals(locktype)) {// 判断是否是加密日记 0没有
-//									dop.create_db();// 打开数据库
-//									dop.delete_db(item_id);//删除数据
-//									dop.close_db();// 关闭数据库
-//									// 刷新列表显示
-//									lv_notes.invalidate();
-//									showNotesList();
-//								} else {//有秘密锁
-//									// 弹出输入密码框
-//									inputTitleDialog(lock, 1, item_id);
-//									// 刷新列表显示
-//									lv_notes.invalidate();
-//									//显示日记列表信息
-//									showNotesList();
-//								}
-//								break;
-//						}
-//					}
-//				});
+		alertDialogBuilder.setItems(R.array.itemOperation,
+				new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						switch (which) {
+							// 编辑
+							case 0:
+								if ("0".equals(locktype)) {//判断是否添加了秘密锁0没有
+									Intent intent = new Intent(MainActivity.this,
+											AddActivity.class);//跳转到添加日记页
+									intent.putExtra("editModel", "update");//传递编辑信息
+									intent.putExtra("noteId", item_id);//传递id信息
+									startActivity(intent);//开始跳转
+								} else {//有秘密锁
+									// 弹出输入密码框
+									inputTitleDialog(lock, 0, item_id);
+								}
+								break;
+							// 删除
+							case 1:
+								if ("0".equals(locktype)) {// 判断是否是加密日记 0没有
+									dop.create_db();// 打开数据库
+									dop.delete_db(item_id);//删除数据
+									dop.close_db();// 关闭数据库
+									// 刷新列表显示
+									lv_notes.invalidate();
+									showNotesList();
+								} else {//有秘密锁
+									// 弹出输入密码框
+									inputTitleDialog(lock, 1, item_id);
+									// 刷新列表显示
+									lv_notes.invalidate();
+									//显示日记列表信息
+									showNotesList();
+								}
+								break;
+						}
+					}
+				});
 		alertDialogBuilder.create();//创造弹窗
 		alertDialogBuilder.show();//显示弹窗
 	}
@@ -276,25 +275,25 @@ public class MainActivity extends Activity {
 					Toast.makeText(MainActivity.this, "密码不能为空请重新输入！",
 							Toast.LENGTH_LONG).show();
 				} else {
-//					if (inputName.equals(lock)) {
-//						if (0 == idtype) {
-//							Intent intent = new Intent(MainActivity.this,
-//									AddActivity.class);
-//							intent.putExtra("editModel", "update");
-//							intent.putExtra("noteId", item_id);
-//							startActivity(intent);
-//						} else if (1 == idtype) {
-//							dop.create_db();
-//							dop.delete_db(item_id);
-//							dop.close_db();
-//							// 刷新列表显示
-//							lv_notes.invalidate();
-//							showNotesList();
-//						}
-//					} else {
-//						Toast.makeText(MainActivity.this, "密码不正确！",
-//								Toast.LENGTH_LONG).show();
-//					}
+					if (inputName.equals(lock)) {
+						if (0 == idtype) {
+							Intent intent = new Intent(MainActivity.this,
+									AddActivity.class);
+							intent.putExtra("editModel", "update");
+							intent.putExtra("noteId", item_id);
+							startActivity(intent);
+						} else if (1 == idtype) {
+							dop.create_db();
+							dop.delete_db(item_id);
+							dop.close_db();
+							// 刷新列表显示
+							lv_notes.invalidate();
+							showNotesList();
+						}
+					} else {
+						Toast.makeText(MainActivity.this, "密码不正确！",
+								Toast.LENGTH_LONG).show();
+					}
 				}
 			}
 		});
