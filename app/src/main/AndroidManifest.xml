@@ -40,10 +40,9 @@
             android:theme="@style/NoteTheme"
             android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name="com.notebook.About"></activity>
-<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.ShowRecord"></activity>-->
-        <!--        <activity android:name="ljy171010125_lyk171140119171010125_lyk171140119.notes.ShowNoteActivity"></activity>-->
-<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.PaintActivity"></activity>-->
-<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.ActivityRecord"></activity>-->
+        <activity android:name="com.notebook.ShowRecord"></activity>
+        <activity android:name="com.notebook.PaintActivity"></activity>
+        <activity android:name="com.notebook.ActivityRecord"></activity>
 <!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.SearchActivity"></activity>-->
 <!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.DataSearchActivity"></activity>-->
         <!--        <activity-->

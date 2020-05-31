@@ -13,7 +13,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    lintOptions {
+        // true  所有正式版构建执行规则生成崩溃的lint检查，如果有崩溃问题将停止构建
+        checkReleaseBuilds false
+        //true 错误发生后停止构建
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false

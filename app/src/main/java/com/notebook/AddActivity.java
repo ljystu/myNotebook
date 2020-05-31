@@ -226,14 +226,14 @@ public class AddActivity extends Activity {
                             break;
                         }
                     }
-//                    // 接着判断当前图片是否是录音，如果为录音，则跳转到试听录音的Activity
-//                    if (path.substring(path.length() - 3)
-//                            .equals("amr")) {
-//                        Intent intent = new Intent(AddActivity.this,
-//                                ShowRecord.class);
-//                        intent.putExtra("audioPath", path);
-//                        startActivity(intent);
-//                    }
+                    // 接着判断当前图片是否是录音，如果为录音，则跳转到试听录音的Activity
+                    if (path.substring(path.length() - 3)
+                            .equals("amr")) {
+                        Intent intent = new Intent(AddActivity.this,
+                                ShowRecord.class);
+                        intent.putExtra("audioPath", path);
+                        startActivity(intent);
+                    }
                 } else
                     // 如果单击的是空白出或文字，则获得焦点，即打开软键盘
                     imm.showSoftInput(et_Notes, 0);
@@ -349,16 +349,16 @@ public class AddActivity extends Activity {
                                 long id) {
             Intent intent;
             switch (position) {
-                // 绘图
-//                case 0:
-//                    intent = new Intent(AddActivity.this, PaintActivity.class);
-//                    startActivityForResult(intent, 3);
-//                    break;
-//                // 语音
-//                case 1:
-//                    intent = new Intent(AddActivity.this, ActivityRecord.class);
-//                    startActivityForResult(intent, 4);
-//                    break;
+//                 绘图
+                case 0:
+                    intent = new Intent(AddActivity.this, PaintActivity.class);
+                    startActivityForResult(intent, 3);
+                    break;
+                // 语音
+                case 1:
+                    intent = new Intent(AddActivity.this, ActivityRecord.class);
+                    startActivityForResult(intent, 4);
+                    break;
                 // 照片
                 case 2:
                     // 添加图片的主要代码
@@ -520,28 +520,28 @@ public class AddActivity extends Activity {
                 }
             }
             // 返回的是绘图后的结果
-//            else if (requestCode == 3) {
-//                //创建接收器
-//                extras = data.getExtras();
-//                //接收返回的信息
-//                String path = extras.getString("paintPath");
-//                // 通过路径取出图片，放入bitmap中
-//                bitmap = BitmapFactory.decodeFile(path);
-//                // 插入绘图文件
-//                InsertBitmap(bitmap, 480, path);
-//            }
-//            // 返回的是录音文件
-//            else if (requestCode == 4) {
-//                //创建接收器
-//                extras = data.getExtras();
-//                //接收返回的信息
-//                String path = extras.getString("audio");
-//                //转换图片成bitmap形式
-//                bitmap = BitmapFactory.decodeResource(getResources(),
-//                        R.drawable.record_icon);
-//                // 插入录音图标
-//                InsertBitmap(bitmap, 200, path);
-//            }
+            else if (requestCode == 3) {
+                //创建接收器
+                extras = data.getExtras();
+                //接收返回的信息
+                String path = extras.getString("paintPath");
+                // 通过路径取出图片，放入bitmap中
+                bitmap = BitmapFactory.decodeFile(path);
+                // 插入绘图文件
+                InsertBitmap(bitmap, 480, path);
+            }
+            // 返回的是录音文件
+            else if (requestCode == 4) {
+                //创建接收器
+                extras = data.getExtras();
+                //接收返回的信息
+                String path = extras.getString("audio");
+                //转换图片成bitmap形式
+                bitmap = BitmapFactory.decodeResource(getResources(),
+                        R.drawable.record_icon);
+                // 插入录音图标
+                InsertBitmap(bitmap, 200, path);
+            }
 
         }
     }

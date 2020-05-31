@@ -3,12 +3,23 @@
 buildscript {
     
     repositories {
+//        //maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        //如果上面的阿里云镜像不行，就尝试用下面的的试试。如果用下面的，上面的就注释掉。
+//        maven { url 'https://maven.aliyun.com/repository/public' }
+//
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        jcenter { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' };
         google()
-        jcenter()
+        maven { url 'http://maven.google.com' }
+        maven { url 'http://jcenter.bintray.com'}
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:4.0.0'
         
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -18,8 +29,20 @@ buildscript {
 
 allprojects {
     repositories {
+//        //maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+//        //如果上面的阿里云镜像不行，就尝试用下面的的试试。如果用下面的，上面的就注释掉。
+//        maven { url 'https://maven.aliyun.com/repository/public' }
+//
+//        maven { url 'https://maven.aliyun.com/repository/google' }
+//        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+//        jcenter { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' };
         google()
-        jcenter()
+        maven { url 'http://maven.google.com' }
+        maven { url 'http://jcenter.bintray.com'}
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven { url "https://jitpack.io" }
         
     }
 }
@@ -27,3 +50,4 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
