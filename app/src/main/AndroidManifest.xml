@@ -43,23 +43,23 @@
         <activity android:name="com.notebook.ShowRecord"></activity>
         <activity android:name="com.notebook.PaintActivity"></activity>
         <activity android:name="com.notebook.ActivityRecord"></activity>
-<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.SearchActivity"></activity>-->
-<!--        <activity android:name="com.ljy171010125_lyk171140119.notebook.DataSearchActivity"></activity>-->
-        <!--        <activity-->
-        <!--            android:name="ljy171010125_lyk171140119171010125_lyk171140119.notes.HandWriteActivity"-->
-        <!--            android:windowSoftInputMode="stateHidden"></activity>-->
+        <activity android:name="com.notebook.SearchActivity"></activity>
+        <activity android:name="com.notebook.DataSearchActivity"></activity>
+<!--                <activity-->
+<!--                    android:name="ljy171010125_lyk171140119171010125_lyk171140119.notes.HandWriteActivity"-->
+<!--                    android:windowSoftInputMode="stateHidden"></activity>-->
 
-<!--        <receiver-->
-<!--            android:name="com.ljy171010125_lyk171140119.notebook.data.CallAlarm"-->
-<!--            android:process=":remote" />-->
+        <receiver
+            android:name="com.notebook.data.CallAlarm"
+            android:process=":remote" />
 
-<!--        <activity-->
-<!--            android:name="com.ljy171010125_lyk171140119.notebook.data.AlarmAlert"-->
-<!--            android:label="@string/remindsetting_name">-->
-<!--            <intent-filter>-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <activity
+            android:name="com.notebook.data.AlarmAlert"
+            android:label="@string/remindsetting_name">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -30,8 +30,8 @@ import androidx.annotation.NonNull;
 
 import com.notebook.adapter.MainAdapter;
 import com.notebook.bean.SQLBean;
-//import com.ljy171010125_lyk171140119.notebook.data.CallAlarm;
-//import com.ljy171010125_lyk171140119.notebook.doubledatepicker.DoubleDatePickerDialog;
+import com.notebook.data.CallAlarm;
+import com.notebook.doubledatepicker.DoubleDatePickerDialog;
 import com.notebook.view.MyGridView;
 import com.master.permissionhelper.PermissionHelper;
 import com.notebook.db.DatabaseOperation;
@@ -68,15 +68,15 @@ public class MainActivity extends Activity {
 		if (am == null) {
 			am = (AlarmManager) getSystemService(ALARM_SERVICE);
 		}
-		//---------------------------------------------------------------------------------------------
-//		try {
-//			Intent intent = new Intent(MainActivity.this, CallAlarm.class);
-//			PendingIntent sender = PendingIntent.getBroadcast(
-//					MainActivity.this, 0, intent, 0);
-//			am.setRepeating(AlarmManager.RTC_WAKEUP, 0, 60 * 1000, sender);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+
+		try {
+			Intent intent = new Intent(MainActivity.this, CallAlarm.class);
+			PendingIntent sender = PendingIntent.getBroadcast(
+					MainActivity.this, 0, intent, 0);
+			am.setRepeating(AlarmManager.RTC_WAKEUP, 0, 60 * 1000, sender);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		permissionHelper = new PermissionHelper(this, new String[]{Manifest.permission.CAMERA,Manifest.permission.RECORD_AUDIO,Manifest.permission.INTERNET,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS}, 100);
 		permissionHelper.request(new PermissionHelper.PermissionCallback() {
 			@Override
@@ -318,59 +318,59 @@ public class MainActivity extends Activity {
 	//-----------------------------------------------------------------------------------暂时不实现
 	public void onSearch(View v) {
 		//获取搜索关键词
-//		String ek = et_keyword.getText().toString();
-//		if ("".equals(ek)) {//判断搜索关键词是否为空
-//			Toast.makeText(MainActivity.this, "请输入关键词！", Toast.LENGTH_LONG)
-//					.show();
-//		} else {//搜索不为空
-//			//进入搜索结果页
-//			Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-//			intent.putExtra("keword", ek);//传递关键词
-//			startActivity(intent);//开始跳转
-//		}
+		String ek = et_keyword.getText().toString();
+		if ("".equals(ek)) {//判断搜索关键词是否为空
+			Toast.makeText(MainActivity.this, "请输入关键词！", Toast.LENGTH_LONG)
+					.show();
+		} else {//搜索不为空
+			//进入搜索结果页
+			Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+			intent.putExtra("keword", ek);//传递关键词
+			startActivity(intent);//开始跳转
+		}
 	}
 
 	// 日期范围搜索
 	//--------------------------------------------------------------------------------------暂时不实现
 	public void onData(View v) {
 		// 最后一个false表示不显示日期，如果要显示日期，最后参数可以是true或者不用输入
-//		Calendar c = Calendar.getInstance();
-//		new DoubleDatePickerDialog(MainActivity.this, 0,
-//				new DoubleDatePickerDialog.OnDateSetListener() {
-//					@Override
-//					public void onDateSet(DatePicker startDatePicker,
-//										  int startYear, int startMonthOfYear,
-//										  int startDayOfMonth, DatePicker endDatePicker,
-//										  int endYear, int endMonthOfYear, int endDayOfMonth) {
-//						if (startYear < endYear || startYear == endYear
-//								&& startMonthOfYear <= endMonthOfYear) {
-//							int st = startMonthOfYear + 1;
-//							int et = endMonthOfYear + 1;
-//							Intent intent = new Intent(MainActivity.this,
-//									DataSearchActivity.class);
-//							// sql判断 需要在月份前补0 否则sql语句判断不正确。
-//							if (st < 10) {
-//								intent.putExtra("startData", startYear + "-0"
-//										+ st + "-" + "01");
-//							} else {
-//								intent.putExtra("startData", startYear + "-"
-//										+ st + "-" + "01");
-//							}
-//							if (et < 10) {
-//								intent.putExtra("endData", endYear + "-0" + et
-//										+ "-" + "30");
-//							} else {
-//								intent.putExtra("endData", endYear + "-" + et
-//										+ "-" + "30");
-//							}
-//							startActivity(intent);
-//						} else {
-//							Toast.makeText(MainActivity.this, "日期选择错误请重新选择！",
-//									Toast.LENGTH_LONG).show();
-//						}
-//					}
-//				}, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c
-//				.get(Calendar.DATE), false).show();
+		Calendar c = Calendar.getInstance();
+		new DoubleDatePickerDialog(MainActivity.this, 0,
+				new DoubleDatePickerDialog.OnDateSetListener() {
+					@Override
+					public void onDateSet(DatePicker startDatePicker,
+										  int startYear, int startMonthOfYear,
+										  int startDayOfMonth, DatePicker endDatePicker,
+										  int endYear, int endMonthOfYear, int endDayOfMonth) {
+						if (startYear < endYear || startYear == endYear
+								&& startMonthOfYear <= endMonthOfYear) {
+							int st = startMonthOfYear + 1;
+							int et = endMonthOfYear + 1;
+							Intent intent = new Intent(MainActivity.this,
+									DataSearchActivity.class);
+							// sql判断 需要在月份前补0 否则sql语句判断不正确。
+							if (st < 10) {
+								intent.putExtra("startData", startYear + "-0"
+										+ st + "-" + "01");
+							} else {
+								intent.putExtra("startData", startYear + "-"
+										+ st + "-" + "01");
+							}
+							if (et < 10) {
+								intent.putExtra("endData", endYear + "-0" + et
+										+ "-" + "30");
+							} else {
+								intent.putExtra("endData", endYear + "-" + et
+										+ "-" + "30");
+							}
+							startActivity(intent);
+						} else {
+							Toast.makeText(MainActivity.this, "日期选择错误请重新选择！",
+									Toast.LENGTH_LONG).show();
+						}
+					}
+				}, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c
+				.get(Calendar.DATE), false).show();
 	}
 	// 进入关于页
 	public void onAbout(View v) {
