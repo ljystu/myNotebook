@@ -41,8 +41,8 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
-//import com.notebook.data.DateTimePickerDialog;
-//import com.notebook.data.DateTimePickerDialog.OnDateTimeSetListener;
+import com.notebook.data.DateTimePickerDialog;
+import com.notebook.data.DateTimePickerDialog.OnDateTimeSetListener;
 import com.notebook.db.DatabaseOperation;
 import com.notebook.view.LineEditText;
 import com.notebook.db.DatabaseOperation;
@@ -388,24 +388,24 @@ public class AddActivity extends Activity {
 
     // 提醒设置
     private void setReminder() {
-//        DateTimePickerDialog d;
-//        if ("0".equals(datatime)) {//判断是否设置过事件０没有设置过提醒时间
-//            d = new DateTimePickerDialog(this, System.currentTimeMillis());//设置自定义时间弹出显示系统时间
-//        } else {
-//            d = new DateTimePickerDialog(this, getdaytime(datatime));//设置自定义时间弹出显示设置过的时间
-//        }
-//        d.setOnDateTimeSetListener(new OnDateTimeSetListener() {
-//            public void OnDateTimeSet(AlertDialog dialog, long date) {
-//                // 取得当前时间
-//                SimpleDateFormat formatter = new SimpleDateFormat(
-//                        "yyyy-MM-dd HH:mm");//设计格式
-//                datatime = formatter.format(date);//以自己设置的时间格式显示时间 date为当前选择的时间
-//                datatype = "1";
-//                datarl.setVisibility(View.VISIBLE);
-//                datatv.setText("提醒时间：" + datatime);
-//            }
-//        });
-//        d.show();
+        DateTimePickerDialog d;
+        if ("0".equals(datatime)) {//判断是否设置过事件０没有设置过提醒时间
+            d = new DateTimePickerDialog(this, System.currentTimeMillis());//设置自定义时间弹出显示系统时间
+        } else {
+            d = new DateTimePickerDialog(this, getdaytime(datatime));//设置自定义时间弹出显示设置过的时间
+        }
+        d.setOnDateTimeSetListener(new OnDateTimeSetListener() {
+            public void OnDateTimeSet(AlertDialog dialog, long date) {
+                // 取得当前时间
+                SimpleDateFormat formatter = new SimpleDateFormat(
+                        "yyyy-MM-dd HH:mm");//设计格式
+                datatime = formatter.format(date);//以自己设置的时间格式显示时间 date为当前选择的时间
+                datatype = "1";
+                datarl.setVisibility(View.VISIBLE);
+                datatv.setText("提醒时间：" + datatime);
+            }
+        });
+        d.show();
     }
 
     public static long getdaytime(String date) {
