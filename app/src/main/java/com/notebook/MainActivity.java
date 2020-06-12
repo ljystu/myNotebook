@@ -349,21 +349,34 @@ public class MainActivity extends Activity {
 							Intent intent = new Intent(MainActivity.this,
 									DataSearchActivity.class);
 							// sql判断 需要在月份前补0 否则sql语句判断不正确。
-							if (st < 10) {
-								intent.putExtra("startData", startYear + "-0"
-										+ st + "-" + startDayOfMonth);
-							} else {
-								intent.putExtra("startData", startYear + "-"
-										+ st + "-" + startDayOfMonth);
+
+							boolean flag = true;
+							if(startYear == endYear && startMonthOfYear == endMonthOfYear && startDayOfMonth > endDayOfMonth){
+								flag = false;
+								Toast.makeText(MainActivity.this, "日期选择错误请重新选择！",
+										Toast.LENGTH_LONG).show();
 							}
-							if (et < 10) {
-								intent.putExtra("endData", endYear + "-0" + et
-										+ "-" + endDayOfMonth);
-							} else {
-								intent.putExtra("endData", endYear + "-" + et
-										+ "-" + endDayOfMonth);
+
+
+							if(flag){
+
+								if (st < 10) {
+									intent.putExtra("startData", startYear + "-0"
+											+ st + "-" + startDayOfMonth);
+								} else {
+									intent.putExtra("startData", startYear + "-"
+											+ st + "-" + startDayOfMonth);
+								}
+								if (et < 10) {
+									intent.putExtra("endData", endYear + "-0" + et
+											+ "-" + endDayOfMonth);
+								} else {
+									intent.putExtra("endData", endYear + "-" + et
+											+ "-" + endDayOfMonth);
+								}
+								startActivity(intent);
+
 							}
-							startActivity(intent);
 						} else {
 							Toast.makeText(MainActivity.this, "日期选择错误请重新选择！",
 									Toast.LENGTH_LONG).show();

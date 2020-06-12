@@ -40,7 +40,7 @@ public class DataSearchActivity extends Activity {
 	private TextView tv_note_id, tv_locktype, tv_lock;
 	public static Vibrator vibrator;//震动器
 	public TextView et_keyword;
-	public String startData, endData;
+	public String startData, endData,endData_temp;
 	Intent intent;
 
 	@Override
@@ -263,25 +263,39 @@ public class DataSearchActivity extends Activity {
 								&& startMonthOfYear <= endMonthOfYear) {
 							int st = startMonthOfYear + 1;
 							int et = endMonthOfYear + 1;
-							if(st<10){
-//								startData = startYear + "-0" + st + "-" + "01";
-								startData = startYear + "-0" + st + "-" + startDayOfMonth;
-							}else{
-//								startData = startYear + "-" + st + "-" + "01";
-								startData = startYear + "-" + st + "-" + startDayOfMonth;
-							}
-							if(et<10){
-//								endData = endYear + "-0" + et + "-" + "01";
-								endData = endYear + "-0" + et + "-" + endDayOfMonth;
-							}else{
-//								endData = endYear + "-" + et + "-" + "30";
-								endData = endYear + "-" + et + "-" + endDayOfMonth;
+
+							boolean flag = true;
+							if(startYear == endYear && startMonthOfYear == endMonthOfYear && startDayOfMonth > endDayOfMonth){
+								flag = false;
+								Toast.makeText(DataSearchActivity.this,
+										"日期选择错误请重新选择！", Toast.LENGTH_LONG).show();
 							}
 
-							et_keyword.setText("开始时间：" + startData + " \n"
-									+ "结束时间：" + endData);
-							showNotesList();
-						} else {
+
+							if(flag){
+
+								if(st<10){
+//								startData = startYear + "-0" + st + "-" + "01";
+									startData = startYear + "-0" + st + "-" + startDayOfMonth;
+								}else{
+//								startData = startYear + "-" + st + "-" + "01";
+									startData = startYear + "-" + st + "-" + startDayOfMonth;
+								}
+								if(et<10){
+//								endData = endYear + "-0" + et + "-" + "01";
+									endData = endYear + "-0" + et + "-" + endDayOfMonth;
+								}else{
+//								endData = endYear + "-" + et + "-" + "30";
+									endData = endYear + "-" + et + "-" + endDayOfMonth;
+								}
+
+
+								et_keyword.setText("开始时间：" + startData + " \n"
+										+ "结束时间：" + endData);
+								showNotesList();
+							}
+ 						}
+						else {
 							Toast.makeText(DataSearchActivity.this,
 									"日期选择错误请重新选择！", Toast.LENGTH_LONG).show();
 						}
