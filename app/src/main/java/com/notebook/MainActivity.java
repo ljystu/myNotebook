@@ -351,6 +351,7 @@ public class MainActivity extends Activity {
 							// sql判断 需要在月份前补0 否则sql语句判断不正确。
 
 							boolean flag = true;
+
 							if(startYear == endYear && startMonthOfYear == endMonthOfYear && startDayOfMonth > endDayOfMonth){
 								flag = false;
 								Toast.makeText(MainActivity.this, "日期选择错误请重新选择！",
