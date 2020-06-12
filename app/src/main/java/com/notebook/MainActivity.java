@@ -351,17 +351,17 @@ public class MainActivity extends Activity {
 							// sql判断 需要在月份前补0 否则sql语句判断不正确。
 							if (st < 10) {
 								intent.putExtra("startData", startYear + "-0"
-										+ st + "-" + "01");
+										+ st + "-" + startDayOfMonth);
 							} else {
 								intent.putExtra("startData", startYear + "-"
-										+ st + "-" + "01");
+										+ st + "-" + startDayOfMonth);
 							}
 							if (et < 10) {
 								intent.putExtra("endData", endYear + "-0" + et
-										+ "-" + "30");
+										+ "-" + endDayOfMonth);
 							} else {
 								intent.putExtra("endData", endYear + "-" + et
-										+ "-" + "30");
+										+ "-" + endDayOfMonth);
 							}
 							startActivity(intent);
 						} else {

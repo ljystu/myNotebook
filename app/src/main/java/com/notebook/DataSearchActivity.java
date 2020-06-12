@@ -264,14 +264,18 @@ public class DataSearchActivity extends Activity {
 							int st = startMonthOfYear + 1;
 							int et = endMonthOfYear + 1;
 							if(st<10){
-								startData = startYear + "-0" + st + "-" + "01";
+//								startData = startYear + "-0" + st + "-" + "01";
+								startData = startYear + "-0" + st + "-" + startDayOfMonth;
 							}else{
-								startData = startYear + "-" + st + "-" + "01";
+//								startData = startYear + "-" + st + "-" + "01";
+								startData = startYear + "-" + st + "-" + startDayOfMonth;
 							}
 							if(et<10){
-								endData = endYear + "-0" + et + "-" + "01";
+//								endData = endYear + "-0" + et + "-" + "01";
+								endData = endYear + "-0" + et + "-" + endDayOfMonth;
 							}else{
-								endData = endYear + "-" + et + "-" + "30";
+//								endData = endYear + "-" + et + "-" + "30";
+								endData = endYear + "-" + et + "-" + endDayOfMonth;
 							}
 
 							et_keyword.setText("开始时间：" + startData + " \n"
