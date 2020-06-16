@@ -23,7 +23,7 @@ public class DatabaseOperation {
             Toast.makeText(context, "数据库创建不成功", Toast.LENGTH_LONG).show();
         }
         // 创建表,名称为notes,主键为_id
-        db.execSQL("create table if not exists notes(_id integer primary key autoincrement,"
+        db.execSQL("create table if not exists notes(_id integer NOT NULL primary key autoincrement ,"
                 + "title text,"//标题title
                 + "context text,"//内容context
                 + "time varchar(20),"//创建时间time
